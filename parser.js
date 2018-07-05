@@ -133,7 +133,7 @@ function generateAST(code, options, additionalParsingContext) {
 
     // Even if jsx option is set in typescript compiler, filename still has to
     // contain .tsx file extension
-    const FILENAME = (extra.ecmaFeatures.jsx) ? "eslint.tsx" : "eslint.ts";
+    const FILENAME = (extra.ecmaFeatures.jsx && options.filePath.match(/\.[jt]sx$/)) ? "eslint.tsx" : "eslint.ts";
 
     const compilerHost = {
         fileExists() {
